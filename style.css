@@ -1,0 +1,357 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Dark Theme Colors */
+    --primary-accent: #4db6ac; /* Teal accent */
+    --secondary-accent: #9b59b6; /* Purple accent */
+    --text-color: #e0e0e0; /* Light text for dark background */
+    --light-text-color: #b0b0b0; /* Slightly dimmer light text */
+    --background-color: #121212; /* Slightly darker background */
+    --surface-color: #1e1e1e; /* Slightly lighter dark for elements */
+    --border-color: #3a3a3a; /* Adjusted border */
+    --hover-bg-color: #2c2c2c; /* Background color for hover states */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 20px 5%; /* Use percentage padding for sides */
+    /* Removed max-width and margin: auto to let content flow */
+}
+
+.container {
+    max-width: 1200px; /* Slightly wider for sidebar */
+    margin: 40px auto; /* Center the main content container */
+    background-color: var(--surface-color); /* Contrast background for content */
+    padding: 30px 40px; /* Padding inside the container */
+    border-radius: 8px; /* Soften edges */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add subtle depth */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px; /* Increased padding */
+}
+
+header h1 {
+    color: var(--text-color);
+    margin-bottom: 10px; /* Increased margin */
+    font-size: 2.8em; /* Slightly larger */
+    font-weight: 600;
+}
+
+header p {
+    color: var(--light-text-color);
+    font-size: 1.2em; /* Slightly larger */
+    margin-bottom: 15px; /* Add margin below paragraph */
+}
+
+.resume-download {
+    display: inline-block; /* Allows margin/padding */
+    margin-top: 10px; /* Space above the link */
+    padding: 8px 15px;
+    border: 1px solid var(--primary-accent);
+    border-radius: 5px;
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.resume-download:hover {
+    background-color: var(--primary-accent);
+    color: var(--surface-color); /* Text color changes for contrast on hover */
+    text-decoration: none;
+}
+
+h2 {
+    color: var(--primary-accent); /* Teal accent */
+    margin-bottom: 25px; /* Increased margin */
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.9em; /* Slightly larger */
+    font-weight: 500;
+}
+
+section {
+    /* margin-bottom: 40px; */ /* Handled by sidebar/main spacing or job margin */
+    /* Sections no longer need individual backgrounds if container has one */
+    /* padding: 25px; */
+    /* border-radius: 5px; */
+}
+
+#skills ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allow skills to wrap */
+    gap: 12px; /* Increased space between skill items */
+}
+
+#skills li {
+    background-color: #333; /* Darker background for skill tags for contrast */
+    padding: 6px 15px;
+    border-radius: 18px; /* Rounded corners */
+    font-size: 0.95em;
+    color: var(--light-text-color);
+    transition: background-color 0.2s ease;
+}
+
+#skills li:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--text-color);
+}
+
+#experience article.job {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color); /* Slightly darker bg for jobs */
+    transition: background-color 0.2s ease;
+}
+
+#experience article.job:hover {
+    background-color: var(--hover-bg-color);
+}
+
+#experience article.job:last-of-type {
+    /* border-bottom: none; */ /* No longer needed with individual borders */
+    margin-bottom: 0;
+    /* padding-bottom: 0; */
+}
+
+#experience h3.collapsible {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 1.4em; /* Larger job titles */
+    margin-bottom: 8px;
+    font-weight: 600;
+    padding: 5px 0; /* Add some padding for easier clicking */
+    transition: color 0.2s ease;
+}
+
+#experience h3.collapsible:hover {
+    color: var(--primary-accent);
+}
+
+#experience .toggle-icon {
+    font-size: 1.3em; /* Larger icon */
+    margin-left: 15px;
+    color: var(--primary-accent);
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+#experience .company-date {
+    color: var(--light-text-color);
+    font-size: 1em;
+    margin-bottom: 15px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+
+#experience .logo-placeholder {
+    display: inline-flex; /* Use flex for centering */
+    align-items: center;
+    justify-content: center;
+    width: 24px; /* Slightly larger logo */
+    height: 24px;
+    background-color: #333; /* Consistent dark grey */
+    color: var(--light-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 0.7em;
+    font-style: normal;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Style for the hidden details */
+#experience .job-details {
+    padding-left: 15px; /* Indent details */
+    margin-top: 10px;
+    border-left: 2px solid var(--primary-accent); /* Accent line */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    overflow: hidden; /* Needed for transition */
+    max-height: 0; /* Initially collapsed - JS will override display:none */
+    opacity: 0; /* Initially transparent */
+}
+
+#experience .job-details.expanded {
+    max-height: 1000px; /* Arbitrarily large height */
+    opacity: 1;
+    /* display: block; is still set by JS */
+}
+
+#experience .job-details ul {
+    list-style: disc;
+    padding-left: 30px; /* Indent the bullet points */
+    margin-top: 10px;
+}
+
+#experience .job-details li {
+    margin-bottom: 12px; /* Increased spacing */
+    line-height: 1.65;
+}
+
+#education {
+    background-color: transparent; /* Remove background, container has it */
+    padding: 0; /* Remove padding, handled by container/sidebar */
+    border-radius: 0;
+    border: none; /* Remove border */
+}
+
+#education p {
+    margin-bottom: 5px;
+}
+
+#education strong {
+    font-weight: 600;
+    color: var(--primary-accent);
+}
+
+footer {
+    text-align: center;
+    margin: 60px auto 20px auto; /* Adjust margins */
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--light-text-color); /* Use light text color */
+    max-width: 1100px; /* Match container width */
+}
+
+footer a {
+    color: var(--secondary-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #b37cd4; /* Lighter purple on hover */
+}
+
+/* Main layout using Flexbox */
+.main-layout {
+    display: flex;
+    gap: 40px; /* Space between main content and sidebar */
+    margin-top: 40px; /* Space below header */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.content-main {
+    flex: 3; /* Main content takes up more space (e.g., 3 parts) */
+    min-width: 0; /* Prevents overflow issues */
+}
+
+.sidebar {
+    flex: 1; /* Sidebar takes less space (e.g., 1 part) */
+    min-width: 250px; /* Minimum width for the sidebar */
+}
+
+.sidebar section {
+    margin-bottom: 30px; /* Space between sections in sidebar */
+}
+
+/* Adjust h2 margin specifically in sidebar if needed */
+/* .sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 1.6em; 
+} */
+
+/* --- Media Queries --- */
+
+/* Tablet breakpoint - Stack sidebar */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+    .main-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .sidebar {
+        min-width: 100%; /* Allow sidebar to take full width */
+        order: -1; /* Move sidebar above experience on smaller screens */
+    }
+
+    .content-main {
+         flex-basis: auto; /* Reset flex basis */
+    }
+}
+
+/* Smaller Tablet / Large Mobile */
+@media (max-width: 768px) {
+    body {
+        padding: 15px 3%;
+    }
+    .container {
+        padding: 20px 25px;
+        margin: 20px auto;
+        max-width: 95%; /* Allow more width usage */
+    }
+    header h1 {
+        font-size: 2.4em;
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    h2 {
+        font-size: 1.7em;
+    }
+    /* .sidebar h2 {
+        font-size: 1.5em;
+    } */
+    #experience h3.collapsible {
+        font-size: 1.25em;
+    }
+     #experience .logo-placeholder {
+        width: 20px;
+        height: 20px;
+        /* line-height: 20px; No longer needed with flex */
+        font-size: 0.6em;
+    }
+    #skills li {
+        padding: 5px 12px;
+        font-size: 0.9em;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 20px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+     header p {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    /* .sidebar h2 {
+        font-size: 1.3em;
+    } */
+    #experience h3.collapsible {
+        font-size: 1.15em;
+    }
+    #experience .job-details ul {
+        padding-left: 20px;
+    }
+}
+
+/* Removed Add more specific styles later */ 
